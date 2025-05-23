@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web Cá Nhân Của Bạn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> 
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+            color: #374151; /* Dark gray text */
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        /* Custom styles for the timeline to fit within the personal website */
+        .timeline-container-nested {
+            max-width: 900px; /* Slightly smaller for better fit */
+            margin: 2rem auto; /* Adjust margin */
+            padding: 1.5rem;
+            background-color: #ffffff;
+            border-radius: 0.75rem; /* Slightly less rounded */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .timeline-item {
+            display: flex;
+            margin-bottom: 2rem; /* Slightly less margin */
+            position: relative;
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-date {
+            flex: 0 0 100px; /* Adjusted fixed width for date */
+            padding-right: 1rem;
+            text-align: right;
+            font-weight: 600;
+            color: #4b5563;
+            position: relative;
+            font-size: 0.95rem; /* Slightly smaller font */
+        }
+        .timeline-content {
+            flex-grow: 1;
+            padding-left: 1rem;
+            border-left: 2px solid #d1d5db;
+            position: relative;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -8px; /* Adjust to center on the line */
+            top: 0.2rem;
+            width: 16px;
+            height: 16px;
+            background-color: #6d28d9;
+            border: 2px solid #ede9fe;
+            border-radius: 9999px;
+            z-index: 10;
+        }
+        .timeline-item:nth-child(even) .timeline-date {
+            order: 2;
+            text-align: left;
+            padding-left: 1rem;
+            padding-right: 0;
+        }
+        .timeline-item:nth-child(even) .timeline-content {
+            order: 1;
+            border-left: none;
+            border-right: 2px solid #d1d5db;
+            padding-right: 1rem;
+            padding-left: 0;
+        }
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: auto;
+            right: -8px;
+        }
+
+        /* Responsive adjustments for nested timeline */
+        @media (max-width: 768px) {
+            .timeline-item {
+                flex-direction: column;
+            }
+            .timeline-date,
+            .timeline-content {
+                flex: none;
+                width: 100%;
+                text-align: left !important;
+                padding-left: 0;
+                padding-right: 0;
+                border-left: none !important;
+                border-right: none !important;
+            }
+            .timeline-date {
+                margin-bottom: 0.4rem;
+                font-size: 1rem;
+            }
+            .timeline-content {
+                padding-top: 0.4rem;
+                border-top: 2px solid #d1d5db;
+            }
+            .timeline-dot {
+                display: none;
+            }
+            .timeline-item:nth-child(even) .timeline-date,
+            .timeline-item:nth-child(even) .timeline-content {
+                order: unset;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-700">
+
+    <header class="bg-white shadow-md py-4">
+        <div class="container flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-purple-700">Tên Của Bạn</a>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#about" class="text-gray-600 hover:text-purple-700 font-medium">Giới thiệu</a></li>
+                    <li><a href="#projects" class="text-gray-600 hover:text-purple-700 font-medium">Dự án</a></li>
+                    <li><a href="#contact" class="text-gray-600 hover:text-purple-700 font-medium">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="bg-purple-600 text-white py-20 text-center">
+        <div class="container">
+            <h1 class="text-5xl font-extrabold mb-4">Chào mừng đến với trang của tôi!</h1>
+            <p class="text-xl mb-8">Tôi là [Tên của bạn], một [Nghề nghiệp/Sở thích của bạn].</p>
+            <a href="#projects" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-purple-100 transition duration-300">Xem Dự Án Của Tôi</a>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 bg-white">
+        <div class="container">
+            <h2 class="text-4xl font-bold text-center mb-12 text-purple-700">Về tôi</h2>
+            <div class="flex flex-col md:flex-row items-center md:space-x-12">
+                <div class="md:w-1/3 mb-8 md:mb-0">
+                    <img src="https://placehold.co/300x300/a78bfa/ffffff?text=Ảnh+của+bạn" alt="Ảnh của bạn" class="rounded-full shadow-lg mx-auto w-48 h-48 object-cover">
+                </div>
+                <div class="md:w-2/3 text-lg leading-relaxed">
+                    <p class="mb-4">Xin chào! Tôi là [Tên của bạn]. Tôi đam mê [Sở thích 1], [Sở thích 2] và [Sở thích 3]. Tôi tin rằng [Giá trị/Triết lý cá nhân].</p>
+                    <p class="mb-4">Trong công việc, tôi chuyên về [Lĩnh vực chuyên môn 1] và [Lĩnh vực chuyên môn 2]. Tôi luôn tìm kiếm cơ hội để học hỏi và phát triển bản thân.</p>
+                    <p>Trang web này là nơi tôi chia sẻ những gì tôi đã học được, những dự án tôi đã thực hiện và những điều tôi quan tâm. Rất vui được kết nối với bạn!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-16 bg-gray-50">
+        <div class="container">
+            <h2 class="text-4xl font-bold text-center mb-12 text-purple-700">Dự án & Sở thích</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Dự án 1: [Tên dự án]</h3>
+                    <p class="text-gray-600 mb-4">Mô tả ngắn về dự án này, công nghệ sử dụng hoặc mục tiêu đạt được.</p>
+                    <a href="#" class="text-purple-600 hover:underline font-medium">Tìm hiểu thêm &rarr;</a>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition duration-300">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Dự án 2: [Tên dự án khác]</h3>
+                    <p class="text-gray-600 mb-4">Mô tả ngắn về dự án này, công nghệ sử dụng hoặc mục tiêu đạt được.</p>
+                    <a href="#" class="text-purple-600 hover:underline font-medium">Tìm hiểu thêm &rarr;</a>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 col-span-1 md:col-span-2 lg:col-span-3 hover:shadow-xl transition duration-300">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800 text-center">Sở thích: Lịch sử hạt cà phê</h3>
+                    <div class="timeline-container-nested">
+                        <h1 class="text-3xl font-bold text-center mb-8 text-purple-700">Lịch sử hạt cà phê</h1>
+
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <div class="timeline-dot"></div>
+                                <span class="block text-base">Thế kỷ 9</span>
+                                <span class="block text-xs text-gray-500">Khoảng 850 CN</span>
+                            </div>
+                            <div class="timeline-content">
+                                <h3 class="text-lg font-semibold text-gray-800 mb-1">Phát hiện ở Ethiopia</h3>
+                                <p class="text-sm leading-relaxed">Truyền thuyết về Kaldi, người chăn dê Ethiopia, phát hiện ra cà phê khi những con dê của ông trở nên tràn đầy năng lượng sau khi ăn quả mọng từ một loại cây lạ. Ông chia sẻ phát hiện này với một tu sĩ, người đã tạo ra ly cà phê đầu tiên.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <div class="timeline-dot"></div>
+                                <span class="block text-base">Thế kỷ 15</span>
+                                <span class="block text-xs text-gray-500">Đầu - Giữa</span>
+                            </div>
+                            <div class="timeline-content">
+                                <h3 class="text-lg font-semibold text-gray-800 mb-1">Lan rộng đến thế giới Ả Rập</h3>
+                                <p class="text-sm leading-relaxed">Cà phê bắt đầu được trồng và buôn bán ở Yemen. Các tu sĩ Sufi sử dụng cà phê để giữ tỉnh táo. Cà phê lan rộng khắp bán đảo Ả Rập, các "quán cà phê" (qahveh khaneh) xuất hiện, trở thành trung tâm giao tiếp xã hội.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <div class="timeline-dot"></div>
+                                <span class="block text-base">Thế kỷ 16</span>
+                                <span class="block text-xs text-gray-500">Đầu - Cuối</span>
+                            </div>
+                            <div class="timeline-content">
+                                <h3 class="text-lg font-semibold text-gray-800 mb-1">Đến Đế chế Ottoman và Châu Âu</h3>
+                                <p class="text-sm leading-relaxed">Cà phê đến Cairo và Constantinople. Năm 1555, quán cà phê đầu tiên ở Constantinople mở cửa. Cuối thế kỷ 16, các thương nhân Venice mang cà phê về Châu Âu, ban đầu bị nghi ngờ nhưng dần được chấp nhận.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <div class="timeline-dot"></div>
+                                <span class="block text-base">Thế kỷ 17</span>
+                                <span class="block text-xs text-gray-500">Đầu - Cuối</span>
+                            </div>
+                            <div class="timeline-content">
+                                <h3 class="text-lg font-semibold text-gray-800 mb-1">Cà phê chinh phục Châu Âu</h3>
+                                <p class="text-sm leading-relaxed">Cà phê trở nên phổ biến ở Ý sau khi Giáo hoàng Clement VIII chấp thuận. Các quán cà phê đầu tiên mở cửa ở Venice (1645), Oxford (1652), Paris (1672) và Vienna (1683). Cà phê cũng được giới thiệu đến Bắc Mỹ vào năm 1668.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <div class="timeline-dot"></div>
+                                <span class="block text-base">Thế kỷ 18</span>
+                                <span class="block text-xs text-gray-500">Đầu - Giữa</span>
+                            </div>
+                            <div class="timeline-content">
+                                <h3 class="text-lg font-semibold text-gray-800 mb-1">Lan rộng toàn cầu và đồn điền</h3>
+                                <p class="text-sm leading-relaxed">Cà phê được trồng ở Đông Ấn (Java) và sau đó đến Suriname, Brazil. Năm 1727, Gabriel de Clieu mang cây cà phê đến Martinique, từ đó lan rộng khắp vùng Caribe và Mỹ Latinh. Brazil bắt đầu trở thành cường quốc sản xuất cà phê.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <div class="timeline-dot"></div>
+                                <span class="block text-base">Thế kỷ 19</span>
+                                <span class="block text-xs text-gray-500">Toàn bộ</span>
+                            </div>
+                            <div class="timeline-content">
+                                <h3 class="text-lg font-semibold text-gray-800 mb-1">Bùng nổ sản xuất và tiêu thụ</h3>
+                                <p class="text-sm leading-relaxed">Sản xuất cà phê tăng vọt, đặc biệt là ở Brazil, trở thành nhà cung cấp lớn nhất thế giới. Năm 1882, Sàn giao dịch cà phê New York được thành lập, đặt nền móng cho thị trường cà phê toàn cầu.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <div class="timeline-dot"></div>
+                                <span class="block text-base">Thế kỷ 20</span>
+                                <span class="block text-xs text-gray-500">Đầu - Giữa</span>
+                            </div>
+                            <div class="timeline-content">
+                                <h3 class="text-lg font-semibold text-gray-800 mb-1">Đổi mới và Văn hóa cà phê hiện đại</h3>
+                                <p class="text-sm leading-relaxed">Cà phê hòa tan được phát minh (Satori Kato - 1901, George Washington - 1906). Nestlé giới thiệu Nescafé (1938). Máy pha cà phê espresso trở nên phổ biến. Năm 1971, Starbucks mở cửa hàng đầu tiên, khởi đầu làn sóng cà phê đặc sản.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <div class="timeline-dot"></div>
+                                <span class="block text-base">Thế kỷ 21</span>
+                                <span class="block text-xs text-gray-500">Hiện tại</span>
+                            </div>
+                            <div class="timeline-content">
+                                <h3 class="text-lg font-semibold text-gray-800 mb-1">Cà phê đặc sản và tính bền vững</h3>
+                                <p class="text-sm leading-relaxed">Sự bùng nổ của cà phê đặc sản tiếp tục, tập trung vào chất lượng, nguồn gốc và phương pháp pha chế. Ngành công nghiệp cà phê chú trọng hơn đến tính bền vững, thương mại công bằng và các phương pháp canh tác thân thiện với môi trường.</p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 bg-white">
+        <div class="container text-center">
+            <h2 class="text-4xl font-bold mb-12 text-purple-700">Liên hệ</h2>
+            <p class="text-lg mb-8">Bạn có thể liên hệ với tôi qua:</p>
+            <div class="flex justify-center space-x-6 text-2xl">
+                <a href="mailto:your.email@example.com" class="text-gray-600 hover:text-purple-700 transition duration-300">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-gray-600 hover:text-purple-700 transition duration-300">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/yourusername" target="_blank" class="text-gray-600 hover:text-purple-700 transition duration-300">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <div class="container">
+            <p>&copy; 2025 Trang Web Cá Nhân Của Bạn. Mọi quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+```
